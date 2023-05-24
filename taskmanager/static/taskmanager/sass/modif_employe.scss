@@ -1,0 +1,38 @@
+.main_page-employe {
+    display: flex;
+    padding: 0 50px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 50px;
+}
+
+.sidebar__profile.bas {
+    margin-bottom: 20px;
+}
+
+.page_droite {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 20px;
+
+
+    & h2 {
+        align-self: flex-start;
+    }
+
+}
+
+.validation {
+    background-color: #338633;
+    align-self: center;
+    margin-left: auto;
+    height: 36px;
+    width: 200px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 30px;
+}
+

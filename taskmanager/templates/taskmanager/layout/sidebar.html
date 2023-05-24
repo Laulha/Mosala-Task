@@ -1,0 +1,81 @@
+<section class="sidebar">
+    <div class="sidebar__profile">
+        <div class="sidebar__icone">
+            <img src="https://placehold.co/60x60" alt="fake">
+        </div>
+        <div class="info__profile">
+            <p class="nom__profil">
+                {{request.user.first_name}}
+            </p>
+            <p class="post__profile">
+                {{request.user.role}}
+            </p>
+        </div>
+    </div>
+
+    <nav class="sidebar__nav">
+        <h3 class="nav__title">
+            Menu
+        </h3>
+
+        <section class="nav__options">
+            <div>
+                {% url 'task-manager:index' as url %}
+                {% with url=url titre='Accueil' badge='0' active=act_home icone='bi bi-house' %}
+                    {% include 'taskmanager/components/nav_link.html' with link=url titre=titre badge=badge active=active icone=icone %}
+                {% endwith %}
+            </div>
+            <div>
+                {% url 'task-manager:index' as url %}
+                {% with url=url titre='Taches' badge='0' active=act_taches icone='bi bi-list-task' %}
+                    {% include 'taskmanager/components/nav_link.html' with link=url titre=titre badge=badge active=active icone=icone %}
+                {% endwith %}
+            </div>
+            <div>
+                {% url 'task-manager:index' as url %}
+                {% with url=url titre='Messages' badge='0' active=act_messages icone='bi bi-chat-left-dots' %}
+                    {% include 'taskmanager/components/nav_link.html' with link=url titre=titre badge=badge active=active icone=icone %}
+                {% endwith %}
+            </div>
+            
+            <div>
+                {% url 'task-manager:index' as url %}
+                {% with url=url titre='Profile' badge='0' active=act_profile icone='bi bi-person' %}
+                    {% include 'taskmanager/components/nav_link.html' with link=url titre=titre badge=badge active=active icone=icone %}
+                {% endwith %}
+            </div> 
+        
+
+            {% if request.user.role == 'DRH' %}
+                <div>
+                    {% url 'task-manager:ajout_employe' as url %}
+                    {% with url=url titre='Ajouter Emp.' badge='0' active=act_ajout_emp icone='bi bi-person-plus' %}
+                        {% include 'taskmanager/components/nav_link.html' with link=url titre=titre badge=badge active=active icone=icone %}
+                    {% endwith %}
+                </div>
+            {% else %}
+                <div>
+                    {% url 'task-manager:index' as url %}
+                    {% with url=url titre='Notifications' badge='0' active=act_notification icone='bi bi-bell' %}
+                        {% include 'taskmanager/components/nav_link.html' with link=url titre=titre badge=badge active=active icone=icone %}
+                    {% endwith %}
+                </div>
+            {% endif %}
+
+            {% if request.user.role == 'CHEF' %}
+                <div>
+                    {% url 'task-manager:index' as url %}
+                    {% with url=url titre='Ajouter Tache' badge='0' active=act_ajout_tache icone='bi bi-cloud-plus' %}
+                        {% include 'taskmanager/components/nav_link.html' with link=url titre=titre badge=badge active=active icone=icone %}
+                    {% endwith %}
+                </div>
+            {% endif %}
+
+        </section>
+
+        <section class="nav__settings">
+            <a href="{% url 'auth:logout' %}" class="btn-logout">Se déconnecter</a>
+        </section>
+    </nav>
+    
+</section>

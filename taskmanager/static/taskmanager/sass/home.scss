@@ -1,0 +1,98 @@
+.main-home {
+    display: flex;
+    padding: 20px;
+}
+
+.main-principale {
+    /* 300px pour la taille de .main-annexes*/
+    margin-right: 280px;
+    width: 100%;
+}
+
+.main-tache {
+    @extend %center_flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    height: 200px;
+    background-color: #ada9e4;
+    border-radius: $br_raduis;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/*-----------Header du main (Options)----------*/
+
+.header_main-accueil {
+    padding-top: 30px;
+    font-family: 'Lato', sans-serif;
+}
+
+.titre-header {
+    font-family: 'Roboto', sans-serif;
+    color: rgba($color: #000000, $alpha: .8);
+}
+
+.fonct-header {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    position: relative;
+
+    & .base-functs {
+        @debug(&);
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        background-color: rgba($color: #000000, $alpha: .2);
+        width: 100%;
+    }
+}
+
+.functs {
+    display: flex;
+    gap: 5px;
+    height: 50px;
+}
+
+.funct {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0 3px;
+    width: 115px;
+    font-family: 'Lato', sans-serif;
+
+    & p {
+        margin-top: 16px;
+        font-size: 16px;
+        font-weight: 300;
+        color: rgba($color: #000000, $alpha: .4);
+        transition: .2s;
+    }
+
+}
+
+.funct.activeted span {
+    display: block;
+    background-color: $cl_secondaire;
+    height: 10px;
+    width: 100%;
+    margin-top: 13px;
+    border-radius: 50px;
+}
+
+.funct.activeted p,
+.funct:hover p {
+    color: $cl_secondaire;
+}
+
+/*-----------Affichage des employé(e)s-------------*/
+
+.liste_employe {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

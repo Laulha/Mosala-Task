@@ -1,0 +1,10 @@
+asgiref==3.6.0
+backports.zoneinfo;python_version<"3.9"
+beautifulsoup4==4.12.1
+Django==4.2
+django-livereload-server==0.4
+Pillow==9.5.0
+six==1.16.0
+soupsieve==2.4
+sqlparse==0.4.3
+tornado==6.2

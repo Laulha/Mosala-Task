@@ -1,0 +1,30 @@
+
+.fiel_connection {
+    width: 270px;
+    position: relative;
+}
+
+.field_input {
+    width: 100%;
+    padding: 15px 10px 10px;
+    border: 2px solid $cl_texte_sec;
+    border-radius: $br_raduis;
+    outline: none;
+    font-size: 1.2em;
+    transition: .15s;
+}
+
+
+
+.label_field {
+    position: absolute;
+    left: 10px;
+    top: -9px;
+    background-color: $cl_texte_sec;
+    z-index: 1;
+    color: #fff;
+    padding: 3px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    transition: 0.15s;
+}

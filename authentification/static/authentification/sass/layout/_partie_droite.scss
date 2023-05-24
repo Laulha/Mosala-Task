@@ -1,0 +1,62 @@
+.partie_droite {
+    width: 50%;
+    font-family: 'Inconsolata', 'Inter', sans-serif, monospace;
+    font-weight: 400;
+}
+
+.pd__titre {
+    text-align: center;
+    color: rgba($color: $cl_texte_sec, $alpha: .8);
+
+    &.login {
+        margin-top: 100px;
+    }
+    &.register {
+        margin-top: 100px;
+    }
+}
+
+.pd__texte {
+    @extend %center_flex;
+}
+
+.pd__texte p {
+    width: 250px;
+    text-align: center;
+}
+
+.container_fields {
+    margin-top: 50px;
+    @extend %center_flex;
+    gap : 30px;
+
+    &.login {
+        flex-direction: column;
+    }
+    &.register {
+        flex-wrap: wrap;
+    }
+}
+
+.Example-btn2{ 
+    background-color: #1877f2; 
+    border: none; 
+    border-radius: 6px; 
+    color: #fff;
+    flex-grow: 1;
+    font-size: 15px; 
+    height: 36px; 
+    line-height: 20px; 
+    margin-left: 8px;
+    margin-right: 6px; 
+    min-width: 185px; 
+    padding: 0 16px 0 16px; 
+    transition: 0.3s; 
+    cursor: pointer; 
+}
+
+.link-auth {
+    @include btn_call_action; 
+
+    padding: 10px
+}

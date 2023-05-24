@@ -1,0 +1,21 @@
+.logo {
+    @extend %center_flex;
+}
+
+.logo__icone {
+    background-color: $cl_primaire;
+    padding: 20px;
+    color : rgba($color: #fff, $alpha: .8);
+    border-radius: $br_logo;
+    font-size: 15px;
+    margin-right: 20px;
+}
+
+.logo__icone p {
+    transform: rotate(-20deg)
+}
+
+.name-app { 
+    font-size: 30px;
+    font-weight: 800;
+}

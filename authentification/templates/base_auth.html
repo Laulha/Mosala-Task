@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load static %}   
+
+{% block css %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href=" {% static 'authentification/css/base_auth.css' %} "> 
+
+{% endblock css %}
+
+{% block title %}Authentification{% endblock title %}
+
+{% block main_content %}
+
+<main class='container_auth'>
+    <section class="partie_gauche">
+        <div class="pg__logo">
+            <section class="logo">
+                <div class="logo__icone">
+                    <p>Mos</p>
+                </div>
+            </section>
+        </div>
+        <h1 class="pg__titre">
+            Votre assistant Mossala
+        </h1>
+        <p class="pg__texte">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem temporibus ut molestias laboriosam atque, delectus debitis voluptatibus ex dolor reiciendis eaque suscipit nulla praesentium corrupti sequi ea porro distinctio! Provident?
+        </p>
+    </section>
+
+    <section class="partie_droite">
+        <h1 class={% block pd_titre %}"pd__titre"{% endblock pd_titre %}>
+            Soyez les bienvenu(e)
+        </h1>
+        <div class="pd__texte">
+            <p>
+                {% block texte_connection %} 
+                Veuillez vous connecté à votre compte
+                {% endblock texte_connection %}
+            </p>
+        </div>
+        
+        <!-- On va injecter un div dans ce block afin de d'avoir 
+        soit des champs de connexion, soit d'enregistrement -->
+        {% block fiel_connection %}
+        
+        {% endblock fiel_connection %}
+        
+    </section>
+</main>
+
+{% endblock main_content %}

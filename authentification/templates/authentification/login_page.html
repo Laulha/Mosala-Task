@@ -1,0 +1,37 @@
+{% extends 'base_auth.html' %}
+
+{% load static %}   
+
+{% block pd_titre %}"pd__titre login"{% endblock pd_titre %}
+
+{% block texte_connection %} 
+Veuillez vous connecté à votre compte
+{% endblock texte_connection %}
+
+{% block fiel_connection %}
+
+
+<form class="container_fields login" method = 'POST'>
+
+    {% csrf_token %}
+
+    {% for field in form %}
+        {% if field.help_text %}
+            <div> {{field.help_text}}</div>
+        {% endif %}
+        <div class="field">
+            {% include 'components/input.html' with input_field=field %}
+        </div>
+    {% endfor %}
+    
+    <button type="submit" class='Example-btn2'>Connexion</button>
+    <a href=" {% url 'auth:register' %} " class='link-auth'>S'incrire</a>
+</form>
+
+{{message}}
+
+{% if request.user.is_authenticated %}
+<a href="{% url 'auth:logout' %}">Se déconnecté</a>
+{% endif %}
+
+{% endblock fiel_connection %}

@@ -1,0 +1,7 @@
+
+@mixin btn_call_action ($clr_border : #000) {
+    display: inline-block;
+    padding: 15px 15px;
+    border: rgba($color: $clr_border, $alpha: .5) solid 2px;
+    border-radius: $br_raduis;
+}

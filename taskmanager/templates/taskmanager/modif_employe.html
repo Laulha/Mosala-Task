@@ -1,0 +1,64 @@
+{% extends 'taskmanager/base_task_manager.html' %}
+
+{% load static %}  
+
+{% block main_task_manager %}
+
+<div class="main_page-employe">
+    <div class="page_gauche">
+        <div class="sidebar__profile bas">
+            <div class="sidebar__icone">
+                <img src="https://placehold.co/70x70" alt="fake">
+            </div>
+            <div class="info__profile">
+                <p class="nom__profil">
+                    {{emp_modif.first_name}} {{emp_modif.last_name}}
+                </p>
+                <p class="post__profile">
+                    {{emp_modif.role}}
+                </p>
+            </div>
+        </div>
+        <section class="ajout_employe">
+            <h3>Modifier l'employé</h3>
+            <form action="{% url 'task-manager:modif_info_employe' id_employe=emp_modif.id %}" method='POST'>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Valider</button>
+            </form>
+        </section>
+        <section class="employe_du_chef">
+            <h2 class='titre_liste'>Liste des employé du chef</h2>
+            <div class="liste_employe_du_chef">
+                <form action="{% url 'task-manager:modif_info_employe' id_employe=emp_modif.id %}" method="post">
+                    {% csrf_token %}
+                    {% for employe in employes %}
+                        {% if employe.chef_groupe.id == emp_modif.id %}
+                            {% include 'taskmanager/components/employe_chef.html' with employe=employe name='retraits' check='' %}
+                        {% endif %}
+                    {% endfor %}
+                    <button type="submit" class='validation'>Retirer</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+
+    <div class="page_droite">
+        <h2>Employé sans chef</h2>
+        <div class="liste_employe_sans_chef">
+            <form action="{% url 'task-manager:modif_info_employe' id_employe=emp_modif.id %}" method="post">
+                {% csrf_token %}
+                {% for employe in employes %}
+                    {% if employe.chef_groupe == None %}
+                        {% include 'taskmanager/components/employe_chef.html' with employe=employe name='ajouts' check='' %}
+                    {% endif %}
+                {% endfor %}
+                <button type="submit" class='validation'>Ajouter</button>
+            </form>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock main_task_manager %}

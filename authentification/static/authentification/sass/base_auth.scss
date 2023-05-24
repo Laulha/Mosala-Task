@@ -1,0 +1,9 @@
+@import './../../../../static/sass/base.scss';
+@import './../../../../static/sass/components/logo';
+@import './../../../../static/sass/components/input';
+@import 'layout/partie_gauche';
+@import 'layout/partie_droite';
+
+.container_auth {
+    display: flex;
+}

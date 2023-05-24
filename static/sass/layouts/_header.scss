@@ -1,0 +1,122 @@
+
+@import '../components/_logo';
+
+header {
+    width: 100%;
+    font-family: 'Ubuntu', Arial, sans-serif;
+}
+
+.header__top {
+    @extend %ecarter;
+    padding: 30px 50px;
+}
+
+
+/* LISTE OPTION */
+
+.options {
+    @extend %ecarter;
+}
+
+nav {
+    @extend %center_flex;
+    color :rgba($color: #000, $alpha: .6)
+}
+
+.nav__list {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
+}
+
+.nav__list a {
+    font-size: 1.3em;
+    padding: 5px 20px;
+    cursor: pointer;
+
+    &:hover {
+        color: #000;
+    }
+}
+
+/* LISTE OPTION */
+
+
+
+/* BOUTON DE CONNECTION */
+
+.register {
+    @extend %center_flex;
+    gap: 15px;
+
+    
+}
+
+.sign {
+    @include btn_call_action();
+    transition: all .2s;
+
+    &:first-child:hover {
+        background-color: $cl_tertiare;
+        color: #fff;
+        border: rgba($color: $cl_tertiare, $alpha: .5) solid 2px;
+        border-radius: $br_raduis;
+    }
+}
+
+.active-btn {
+    background-color: $cl_secondaire;
+    border: $cl_secondaire solid 2px;
+    color: #fff;
+}
+
+/* BOUTON DE CONNECTION */
+
+/* MAIN HEADER */
+
+.header__main {
+    @extend %ecarter;
+    flex-wrap: wrap-reverse;
+    font-family: 'Inter', sans-serif;
+    padding: 0 100px;
+}
+
+.info {
+    margin-top: 70px;
+}
+
+.info__titre {
+    padding: 5px 0;
+    font-size: 3em;
+    font-weight: 700;
+    color: rgba($color: $cl_texte, $alpha: .8);
+    width: 300px;
+}
+
+.info__texte {
+    line-height: 1.6;
+    padding: 20px 0;
+    font-family: 200;
+    font-size: 1.1em;
+    text-align: justify;
+    width: 500px;
+    color: rgba($color: $cl_texte, $alpha: .7);
+    
+}
+
+.btn-register {
+    margin-top: 20px;
+    font-size: 1.17em;
+    @include btn_call_action($clr_border: $cl_primaire);
+    width: 200px;
+    text-align: center;
+    background-color: $cl_primaire;
+    color : #fff;
+}
+
+.image img {
+    width: 610px;
+    height: 400px;
+    margin-top: 40px;
+}
+

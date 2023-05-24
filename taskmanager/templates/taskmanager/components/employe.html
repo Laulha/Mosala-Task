@@ -1,0 +1,26 @@
+<div class="employe">
+    <img src="https://placehold.co/40x40" alt="fake">
+    <p class="nom_prenom">
+        {{employe.first_name}} {{employe.last_name}}
+    </p>
+    <p class="poste">
+        {{employe.poste}}
+    </p>
+    <p class="role">
+        {{employe.role}}
+    </p>
+    <div class="options_employe">
+        <a href="{{url_view}}" class="voir_info">
+            <i class="bi bi-box-arrow-right"></i>
+        </a>
+        <a href="{{url_modif}}" class="modifier_info">
+            <i class="bi bi-sliders"></i>
+        </a>
+        {% comment %} 
+        <a href="{{url}}" class="ajouter_tache">
+            <i class="bi bi-folder-plus"></i>
+        </a>
+        {% endcomment %}
+        
+    </div>
+</div>

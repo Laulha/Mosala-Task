@@ -1,0 +1,56 @@
+ <!-- 
+    On va redéfinir le titre, le texte de connexion
+    et enfin le corps (le contenu)
+-->
+
+{% extends 'base_auth.html' %}
+
+{% load static %}  
+
+{% block title %}Inscription{% endblock title %}
+
+{% block pd_titre %}"pd__titre register"{% endblock pd_titre %}
+
+{% block texte_connection %} 
+Création de compte
+{% endblock texte_connection %}
+
+{% block fiel_connection %}
+
+{{form.non_field_errors}}
+
+{% for field in form %}
+        
+    {% if field.errors %}
+        {% for error in field.errors %}
+            <div> {{error}} </div>
+        {% endfor %}
+    {% endif %}
+
+{% endfor %}
+
+<form class="container_fields register" method='POST'>
+
+    {% csrf_token %}
+
+    {% for field in form %}
+        
+        {% if field.name != 'role' %}
+            <div class="field">
+                {% include 'components/input.html' with input_field=field %}
+            </div>
+        {% endif %}
+    {% endfor %}
+    
+        <div>
+            {{form.role}}
+        </div>
+
+    <div class="boutons">
+        <button type="submit" class="Example-btn2">Inscription</button>
+        <a href=" {% url 'auth:login' %} " class='link-auth'>Se connecter</a>
+    </div>
+    
+</form>
+
+{% endblock fiel_connection %}

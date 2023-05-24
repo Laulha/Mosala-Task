@@ -1,0 +1,23 @@
+@import './../../../../static/sass/base.scss';
+@import './../../../../static/sass/components/input';
+@import '../sass/components/nav_link';
+@import '../sass/components/tache';
+@import '../sass/components/employe';
+@import 'components/lien_ajout_emp';
+@import 'components/employe_chef';
+@import 'layout/sidebar';
+@import 'layout/annexe';
+@import 'home';
+@import 'ajout_employe';
+@import 'modif_employe';
+
+.main-task_manager {
+    display: flex;
+}
+
+.main_contente-task_manager {
+    /*270px = la taille de la sidebar vu que ce dernier est à position fixed*/
+    margin-left: 270px;
+    width: 100%;
+    max-width: 1016;
+}

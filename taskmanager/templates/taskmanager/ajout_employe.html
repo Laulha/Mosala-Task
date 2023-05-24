@@ -1,0 +1,35 @@
+{% extends 'taskmanager/base_task_manager.html' %}
+
+{% load static %}  
+
+{% block main_task_manager %}
+
+{{message}}
+
+<div class="main-ajout_employe">
+    
+    <div class="container-ajout">
+
+        <section class="ajout_employe">
+            <h3>Ajouter un employé</h3>
+            <form action="" method='POST'>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Ajouter un employe</button>
+            </form>
+        </section>
+        <h2 class='titre_liste'>Liste des liens </h2>
+        <p class="base_lien"><span>Base lien :</span> <span>http://127.0.0.1:8000/auth/link-register/</span></p>
+        <section class="list-liens_connexion">
+            {% for lien in lesLiens %}
+                {% url 'task-manager:lien_effacer' lien_a_effacer=lien.lien_connexion as url %}
+                {% include 'taskmanager/components/lien_ajout_emp.html' with lien=lien url=url %}
+            {% endfor %}
+
+        </section>
+
+    </div>
+
+</div>
+
+{% endblock main_task_manager %}

@@ -1,0 +1,111 @@
+.bg_raison {
+    background-image: url("/static/images/bg_raison.svg");
+    background-position: 100% 100%;
+    background-size: 100% 110%;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    -webkit-text-fill-color: inherit;
+
+    height: 825px;
+    min-width: 900px;
+
+}
+
+.raison {
+    @extend %center_flex;
+    flex-direction: column;
+    font-family:'Inter', Arial, Helvetica, sans-serif;
+    padding: 50px 0 0 0;
+    gap : 60px;
+}
+
+.raison__titre {
+    @extend .info__titre;
+    font-weight: 600;
+    font-size: 2em;
+    width: auto;
+    text-align: center;
+}
+
+.cards {
+    padding-top: 20px;
+    color: $cl_texte;
+    @extend %center_flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 260px;
+    @extend %center_flex;
+    flex-direction: column
+}
+
+.card__logo {
+    @extend %center_flex;
+    
+
+    .bg_logo {
+        padding: 7px;
+        border-radius: 17px;
+
+        &.un {
+            background-color: #ff5500;
+        }
+
+        &.deux {
+            background-color: #00aa7f;
+        }
+
+        &.trois {
+            background-color: #55ff7f;
+        }
+
+        &.quatre {
+            background-color: #00007f;
+        }
+
+
+        &.cinq {
+            background-color: #aa55ff;
+        }
+
+        &.six {
+            background-color: #ff007f;
+        }
+    }
+
+    svg {
+        width: 30px;
+        height: 30px;
+        color: #fff;
+    }
+}
+
+.card__titre {
+    padding: 13px 0 15px 0;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+.card__texte {
+    padding: 0 0 15px 0;
+    color: #577592;
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 400;
+    text-align: center;
+}
+
+.btn-more {
+    display: inline-block;
+    padding: 10px 10px;
+    border: rgba($color: $cl_tertiare, $alpha: .4) solid .5px;
+    border-radius: $br_raduis;
+    width: 150px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+
+

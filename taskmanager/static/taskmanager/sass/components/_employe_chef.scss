@@ -1,0 +1,44 @@
+.employe_chef {
+    display: flex;
+    margin-top: 15px;
+}
+
+.infos_employe_chef {
+    display: flex;
+
+    & img {
+        border-radius: 30px;
+        margin-right: 20px;
+    }
+}
+
+.divers_employe_chef {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.nom_prenom_employe_chef {
+    width: 270px;
+    text-transform: uppercase;
+    font-size: 17px;
+    @extend %crop_texte!optional;
+}
+
+.poste_employe_chef {
+    font-size: 14px;
+    font-style: italic;
+    color: rgba($color: $cl_texte, $alpha: 0.6);
+}
+
+.check_input {
+    font: inherit;
+    color: currentColor;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    align-self: center;
+}

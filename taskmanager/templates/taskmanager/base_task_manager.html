@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}   
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:wght@200;300;400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href=" {% static 'taskmanager/css/base_task_manager.css' %} "> 
+
+{% endblock css %}
+
+{% block title %}Task Manager{% endblock title %}
+
+{% block main_content %}
+
+<main class="main-task_manager">
+    
+    {% include 'taskmanager/layout/sidebar.html' %}
+
+    <main class="main_contente-task_manager">
+        {% block main_task_manager %}
+            
+        {% endblock main_task_manager %}   
+    </main>
+</main>
+    
+{% endblock main_content %}

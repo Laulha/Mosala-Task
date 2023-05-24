@@ -1,0 +1,46 @@
+.compagnies {
+    padding: 100px 50px;
+    font-family: 'Inter', 'Ubuntu', Arial, sans-serif;
+}
+
+.compagnies__titre {
+    padding: 20px 0 50px 0;
+    text-align: center;
+    font-weight: 400;
+    color: $cl_texte;
+}
+
+.images-societe {
+    @extend %center_flex;
+    flex-wrap: wrap;
+    gap : 70px;
+    
+    .societe1 {
+        width: 94px;
+        height: 45px;
+    }
+
+    .societe2 {
+        width: 145px;
+        height: 45px;
+    }
+    .societe3 {
+        width: 104px;
+        height: 45px;
+    }
+
+    .societe4 {
+        width: 44px;
+        height: 45px;
+    }
+
+    .societe5 {
+        width: 105px;
+        height: 45px;
+    }
+
+    .societe6 {
+        width: 169px;
+        height: 45px;
+    }
+}

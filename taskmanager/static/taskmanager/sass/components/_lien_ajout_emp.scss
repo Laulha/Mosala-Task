@@ -1,0 +1,87 @@
+.lien_connexion {
+    display: flex;
+    padding: 10px 20px;
+    border-radius: $br_raduis;
+    margin-top: 30px;
+}
+
+.corps {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lien {
+    font-size: 18px;
+    color : #7b65f8;
+}
+
+.inscrit {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: 'Lato', sans-serif ;
+    width: 100%;
+
+    & img {
+        border-radius: 30px;
+    }
+}
+
+.info_lien {
+    display: flex;
+    align-items: center;
+}
+
+.info_employe {
+    display: flex;
+    flex-direction: column;
+
+    .nom_prenom {
+        padding: 0 25px;
+        width: 270px;
+        @extend %crop_texte!optional;
+    }
+}
+
+.divers_lien {
+    display: flex;
+    margin-top: 5px; 
+
+    .role_lien, .poste_lien {
+        margin-left: 25px;
+        font-size: 10px;
+    }
+}
+
+.statut_lien {
+    @extend %center_flex;
+    background-color: rgba($color: $cl_texte, $alpha: .3);
+    border-radius: 20px;
+    color: #fafafa;
+    padding: 5px 15px;
+    height: 36px;
+
+    &.valide {
+        background-color: #2d8325;
+    }
+
+    &.lu {
+        background-color: #b1ae28;
+    }
+
+    &.expire {
+        background-color: #eb1325;
+    }
+}
+
+.effacer_lien {
+    @extend %center_flex;
+    background-color: #ed5f5f;
+    align-self: center;
+    margin: 30px 0 0 20px;
+    height: 36px;
+    width: 122px;
+    border-radius: $br_raduis;
+    color : #fff;
+}

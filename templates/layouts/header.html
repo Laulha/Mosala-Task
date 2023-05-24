@@ -1,0 +1,38 @@
+{% load static %}
+
+<header>
+    <div class="header__top">
+        {% include 'components/logo.html' %}
+        <section class='options'>
+            <nav class="nav">
+                <ul class='nav__list'>
+                    <a href="#" >Intereste</a>
+                    <a href="#" >Price</a>
+                    <a href="#" >Dev</a>
+                </ul>
+            </nav>
+            <div class="register">
+                <a href=" {% url 'auth:login' %} " class="sign">Sing In</a>
+                <a href=" {% url 'auth:register' %} " class="sign active-btn">Register</a>
+            </div>
+        </section>
+    </div>
+    
+    <div class="header__main">
+        <section class="info">
+            <div class="info__titre">
+                <p>Gerer </p> 
+                <p>votre équipe</p> 
+            </div>
+            <p class="info__texte">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit voluptas est at rerum consequuntur magni, eveniet enim quasi quo iure iste doloremque quia a? Provident eum magnam aliquid quasi.
+            </p>
+            <a href=" {% url 'auth:register' %} " class="btn-register">S'inscrire</a>
+        </section>
+            
+        <section class="image">
+            <img src="{% static 'images/travail.svg' %}"  alt="travailler">
+        </section>
+    </div>
+
+</header>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+
+<!-- Si on a un css et un js en particulier, on les 
+    aurai ajouter ici pour soit remplacer le 
+    css et js par défaut, soit pour en ajouter.
+-->
+
+{% block title %}Page d'accueil{% endblock title %}
+
+{% block main_content %}
+
+<!-- Inclusion du header -->
+{% include 'layouts/header.html' %}
+
+<!-- Inclusion de la partie des compagnies -->
+{% include 'layouts/compagnies.html' %}
+
+<!-- Inclusion des raison de pourquoi utiliser notre service -->
+{% include 'layouts/raison_utilisation.html' %}
+
+{% endblock main_content  %}

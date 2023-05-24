@@ -1,0 +1,17 @@
+%center_flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%ecarter {
+    display: flex;
+    justify-content: space-between;
+}
+
+%crop_texte {
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+

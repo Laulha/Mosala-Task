@@ -1,0 +1,48 @@
+.employe {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: 'Lato', sans-serif ;
+    width: 100%;
+
+    & img {
+        border-radius: 30px;
+    }
+
+    & .nom_prenom {
+        padding: 0 25px;
+        width: 210px;
+        @extend %crop_texte!optional;
+    }
+
+    & .poste {
+        @extend %crop_texte!optional;
+        padding: 0 15px;
+        width: 150px;
+    }
+
+    & .role {
+        width: 80px;
+        text-align: center;
+    }
+}
+
+.options_employe {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+    
+}
+
+.options_employe a {
+    @extend %center_flex;
+
+    & i {
+        background-color: rgba($color: $cl_primaire, $alpha: .3);
+        color: rgba($color: $cl_texte, $alpha: .8);
+        padding: 3px 5px;
+        border-radius: $br_raduis;
+        
+    }
+}
+

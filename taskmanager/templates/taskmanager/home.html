@@ -1,0 +1,92 @@
+{% extends 'taskmanager/base_task_manager.html' %}
+
+{% load static %}  
+
+{% block main_task_manager %}
+
+<div class="main-home">
+    <div class="main-principale">
+        <div class="main-tache">
+            <!-- Ici, je vais incluer les taĉhe avec le include depuis les composants -->
+        </div>
+        <div class="main-accueil">
+            <div class="header_main-accueil">
+                <h2 class="titre-header">Employé(e)s</h2>
+                <div class="fonct-header">
+                    <div class="functs">
+
+                        {% if request.user.role == 'DRH' %}
+                            <a href='{% url 'task-manager:index' %}' class="funct {{filtre.tout}}">
+                                <p>Tous</p>
+                                <span></span>
+                            </a>
+                            <a href='{% url 'task-manager:employe_drh' employe='chef'  %}' class="funct {{filtre.chef}}">
+                                <p>Chef de groupe</p>
+                                <span></span>
+                            </a>
+                            <a href='{% url 'task-manager:employe_drh' employe='employe'  %}' class="funct {{filtre.emp}}">
+                                <p>Employé(e)s</p>
+                                <span></span>
+                            </a>
+                        {% endif %}
+                        
+                        {% if request.user.role == 'CHEF' %}
+                            <a href='#' class="funct {{filtre.emp}}">
+                                <p>Employé(e)s</p>
+                                <span></span>
+                            </a>
+                            <a href='#' class="funct {{filtre.tache}}">
+                                <p>Mes taches</p>
+                                <span></span>
+                            </a>
+                            <a href='#' class="funct {{filtre.fin_tache}}">
+                                <p>Taches Finies</p>
+                                <span></span>
+                            </a>
+                        {% endif %}
+                        
+                        {% if request.user.role == 'EMPLOYE' %}
+                            <a href='#' class="funct activeted">
+                                <p>Mes taches</p>
+                                <span></span>
+                            </a>
+                            <a href='#' class="funct">
+                                <p>Fin taches</p>
+                                <span></span>
+                            </a>
+                            <a href='#' class="funct">
+                                <p>Etapes</p>
+                                <span></span>
+                            </a>
+                        {% endif %}
+                        
+                    </div>
+                    <span class='base-functs'></span>
+                </div>
+            </div>
+
+            <div class="liste_employe">
+                <!-- Ici, je vais incluer les employés avec le include depuis les composants -->
+                {% for employe in employes %}
+                        {% if request.user.role == 'DRH' %}
+                            {% url 'task-manager:modif_employe' id_employe=employe.id as url_modif %}
+                        {% else %}
+                            <!-- La modification de l'employe par le chef de groupe -->
+                            <!-- est différente de celle du DRH -->
+                            <!-- donc, on va lui créer un autre lien, celui-ci n'est que temporaire -->
+                            {% url 'task-manager:index' as url_modif %}
+                        {% endif %}
+
+                        {% url 'task-manager:page_employe' id_employe=employe.id as url_view %}
+                    
+                        {% include 'taskmanager/components/employe.html' with employe=employe url_modif=url_modif url_view=url_view %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% include 'taskmanager/layout/annexe.html' %}
+
+</div>
+
+{% endblock main_task_manager %}
