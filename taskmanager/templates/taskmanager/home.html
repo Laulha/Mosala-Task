@@ -16,15 +16,15 @@
                     <div class="functs">
 
                         {% if request.user.role == 'DRH' %}
-                            <a href='{% url 'task-manager:index' %}' class="funct {{filtre.tout}}">
+                            <a href="{% url 'task-manager:index' %}" class="funct {{filtre.tout}}">
                                 <p>Tous</p>
                                 <span></span>
                             </a>
-                            <a href='{% url 'task-manager:employe_drh' employe='chef'  %}' class="funct {{filtre.chef}}">
+                            <a href="{% url 'task-manager:employe_drh' employe='chef'  %}" class="funct {{filtre.chef}}">
                                 <p>Chef de groupe</p>
                                 <span></span>
                             </a>
-                            <a href='{% url 'task-manager:employe_drh' employe='employe'  %}' class="funct {{filtre.emp}}">
+                            <a href="{% url 'task-manager:employe_drh' employe='employe'  %}" class="funct {{filtre.emp}}">
                                 <p>Employé(e)s</p>
                                 <span></span>
                             </a>

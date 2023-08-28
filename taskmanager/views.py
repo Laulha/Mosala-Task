@@ -9,11 +9,21 @@ from mesmodules.decorators import drh_required, employe_deni
 
 # Create your views here.
 
+"""
+* Ce index est le même pour tout type d'employé (DRH, Chef et employé). 
+* En fonction du role de l'employé, les donées récupérer seront différent de la manière suivante :
+    - Employé : tâches
+    - Chef : employés qui sont sous ses directives
+    - DRH : tout les emplyés qui sont dans la boîtes.
+"""
 @login_required
 def index (request):
+    # Initition du filtre
     filtre = {}
     ACTIVE = 'activeted'
-    # On vérifie le role et en fonction de ce dernier, on envoie certaine informations
+    # Filtre au niveau de la sidebar
+    act_home = ACTIVE
+    
     if request.user.role == MyUser.CHEF:
         employes = MyUser.objects.filter(chef_groupe=request.user.id)
         filtre['emp'] = ACTIVE
@@ -22,14 +32,12 @@ def index (request):
         filtre['tache'] = ACTIVE
     else:
         ## ici c'es forcement le drh
-        ## On récupère tout les employé (employé et chef)
         employes = MyUser.objects.exclude(id=request.user.id)
         filtre['tout'] = ACTIVE
-        
     
     contexte = {
         'employes': employes,
-        'act_home' : ACTIVE, 
+        'act_home' : act_home,
         'filtre': filtre
     }
     return render(request, 'taskmanager/home.html', contexte)
@@ -40,6 +48,9 @@ def index (request):
 def employe_drh(request, employe):
     filtre = {}
     ACTIVE = 'activeted'
+    # Filtre au niveau de la sidebar
+    act_home = ACTIVE
+    
     if employe == 'chef':
         employes = MyUser.objects.filter(role=MyUser.CHEF)
         filtre['chef'] = ACTIVE
@@ -49,7 +60,7 @@ def employe_drh(request, employe):
 
     contexte = {
         'employes': employes,
-        'act_home' : ACTIVE,
+        'act_home': act_home,
         'filtre': filtre
     }
     return render(request, 'taskmanager/home.html', contexte)
@@ -67,8 +78,8 @@ def ajout_employe(request):
             lien_db.lien_connexion = lienconnexion.genere_lien()
             try:
                 lien_db.save()
-                #Pour repecter le PRG (Post, Redirect, Get) afin d'éviter
-                #de resoumettre une involontairement un formulaire.
+                # On souhaite rester sur la même page après avoir soumit notre formulaire, cette pratique
+                # ne respectant pas le PRG (Post, Redirect et Get), on redirige vers notre page de base.
                 return redirect('task-manager:ajout_employe')
             except Exception:
                 lien_db.lien_connexion = lienconnexion.genere_lien()
@@ -164,7 +175,7 @@ def modif_info_chef(request, id_employe):
                     poste = form.cleaned_data['poste_employe']
                     if role != emp_modif.role:
                         if role == MyUser.EMPLOYE:
-                            # On lui rétire tous les employés qui étaient sous sa tutelle
+                            # On lui rétire tous les employés qui étaient sous sa directive
                             MyUser.objects.filter(chef_groupe__id=emp_modif.id).update(chef_groupe='')
                         else:
                             emp_modif.chef_groupe = None
@@ -173,7 +184,7 @@ def modif_info_chef(request, id_employe):
                     emp_modif.poste = poste
                     emp_modif.save()
                     #LienConnexion.objects.filter(lien_connexion=emp_modif.lienconnexion.all()[0].lien_connexion).update(poste_lien=poste)
-                
+    
     
     url = reverse('task-manager:modif_employe', args=[emp_modif.id])
     return redirect(url)
